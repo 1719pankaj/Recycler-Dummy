@@ -1,12 +1,16 @@
 package com.example.newsrecycler
 
+import android.app.DownloadManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), NewsItemClicked {
+class MainActivity : AppCompatActivity(), NewsListAdapter.NewsItemClicked {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +24,8 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
 
     private fun fetchData(): ArrayList<String> {
         val list = ArrayList<String>()
-        for (i in 0 until 100){
-            list.add("item $i")
+        for (i in 0 until 100) {
+            list.add("Item $i")
         }
         return list
     }
